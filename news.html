@@ -1,2 +1,406 @@
-<h1> Lakshya </h1>
-<a href="/image.html">image</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            background-color: #fff;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: #fafafa;
+            padding: 5px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            padding-left: 1in;
+        }
+
+        .logo {
+            width: 30px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            width: 200px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 150px;
+            font-size: 1rem;
+        }
+
+        .search-bar .fa {
+            color: #6e6e6e;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+            background-color: #d3d3d3;
+            padding: 10px 0;
+        }
+
+        .left-links, .right-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6e6e6e;
+            font-size: 1rem;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background-color: #4f4f4f;
+        }
+
+        .nav-links .fa-home {
+            font-size: 1.5rem;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1rem;
+            color: #6e6e6e;
+        }
+
+        .dark-mode-toggle input {
+            cursor: pointer;
+        }
+
+        .contact-btn {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #005bb5;
+        }
+
+        /* Card Layout Styling */
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            margin: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-header {
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            background-color: #0056a8;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 0 0 10px;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 15px;
+        }
+
+        .card-content a {
+            text-decoration: none;
+            color: #0056a8;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .card-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Carousel Styling */
+        .carousel-container {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .carousel-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: teal;
+            text-align: center;
+        }
+
+        .carousel-title span {
+            font-style: italic;
+            color: purple;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+
+        .carousel .arrow {
+            font-size: 2rem;
+            color: #0078d4;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .carousel .arrow:hover {
+            color: #005bb5;
+        }
+
+        .brand {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .brand img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .brand:hover {
+            transform: scale(1.1);
+        }
+
+        .view-all-btn {
+            margin-top: 20px;
+            background-color: #0078d4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            background-color: #005bb5;
+        }
+
+        /* Page Section Styling */
+        .page {
+            padding: 20px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-section">
+            <div class="logo-container">
+                <img src="images/logo.png" width="400" height="150" />
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <div class="left-links">
+                <a href="#home"><i class="fa fa-home"></i></a>
+                <a href="#about">About us</a>
+                <a href="#">Our stories</a>
+                <a href="#">Brands</a>
+                <a href="#">Sustainability</a>
+                <a href="#">Nutrition</a>
+                <a href="#">Ask Nestlé</a>
+            </div>
+            <div class="right-links">
+                <a href="#">Careers</a>
+                <a href="#">Investors</a>
+                <a href="#">Media</a>
+            </div>
+        </nav>
+        <div class="actions">
+            <div class="dark-mode-toggle">
+                <label for="dark-mode">Dark mode</label>
+                <input type="checkbox" id="dark-mode">
+            </div>
+            <button class="contact-btn">Contact us</button>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="page">
+        <!-- Card Layout Section -->
+        <div class="card-container">
+            <div class="card">
+                <img src="images/capital.png" />
+                <div class="card-header">WEBCAST REPLAY</div>
+                <div class="card-content">
+                    <h3>Capital Markets Day</h3>
+                    <p>At Capital Markets Day we presented our plan to fuel and accelerate growth. Watch the webcast replay.</p>
+                    <a href="#">FIND OUT MORE &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/sustainability.png" />
+                <div class="card-header">CREATING SHARED VALUE</div>
+                <div class="card-content">
+                    <h3>Sustainability</h3>
+                    <p>We are taking action to fulfill our promise: to advance regenerative food systems at scale.</p>
+                    <a href="#">FIND OUT MORE &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/contact.png" />
+                <div class="card-header">NEED TO TALK?</div>
+                <div class="card-content">
+                    <h3>Contact us</h3>
+                    <p>Got questions, concerns or feedback? We want to hear them. Find out the many ways you can get in touch.</p>
+                    <a href="#">READ MORE &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/careers.png" />
+                <div class="card-header">CAREERS</div>
+                <div class="card-content">
+                    <h3>Careers</h3>
+                    <p>Looking for a job opportunity at our company? Search our available careers.</p>
+                    <a href="#">SEARCH JOBS &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Carousel Section -->
+        <div class="carousel-container">
+            <div class="carousel-title">
+                <span>EXPLORE</span> a selection of our brands
+            </div>
+            <div class="carousel">
+                <i class="fa fa-chevron-left arrow"></i>
+                <div class="brand"><img src="images/maggi.png" alt="Maggi"></div>
+                <div class="brand"><img src="images/nes.png" alt="Nescafé"></div>
+                <div class="brand"><img src="images/kit.png" alt="KitKat"></div>
+                <div class="brand"><img src="images/pel.png" alt="S.Pellegrino"></div>
+                <div class="brand"><img src="images/gardens.png" alt="Garden Gourmet"></div>
+                <div class="brand"><img src="images/purnima.png" alt="Purina"></div>
+                <i class="fa fa-chevron-right arrow"></i>
+            </div>
+            <a href="#" class="view-all-btn">View all brands</a>
+        </div>
+    </section>
+
+    <section id="about" class="page">
+        <img src="images/image.png" alt="About Us Image" class="about-image" style="width: 100%; height: 660px; display: block; margin: 10px auto; border-radius: 10px;">
+        <h1 style="text-align: center; font-size: 5.5rem; font-weight: bold; font-family: 'Brush Script MT', cursive; color: black;">About Us</h1>
+        <p style="text-align: center; font-size: 2.0rem; font-family: 'Georgia', serif; color: purple;">We are Nestlé. The Good food, Good life company. We believe in the power of food to enhance lives.</p>
+        <p style="text-align: center; font-size: 1.6rem; font-family: 'Arial', sans-serif; color: rgb(18, 122, 156); width: 80%; margin: auto;">
+            Good food nourishes and delights the senses. It helps pets to thrive, children to grow healthily, and parents to age gracefully. It helps all of us live life to the fullest. Good food also respects our planet and protects resources for future generations.  
+            But times are changing fast. And we know that what’s good today won’t be good enough tomorrow. Consider the challenge of satisfying the needs of 10 billion people by 2050 in a responsible and sustainable way. This will demand innovation and change.  
+            At Nestlé, we’re constantly pushing the boundaries of what’s possible with food, drink, and nutritional health solutions. That way, we can enhance quality of life and contribute to a healthier future for all.  
+            Today, our business has around 270,000 employees, more than 2,000 brands, and a presence in 188 countries.
+        </p>  
+      
+        <h2>Our Stories</h2>
+        <p>Discover how Nestlé is making a difference in brand sustainability and nutrition.</p>
+        <div>
+            <button onclick="askNestle()">Ask Nestlé</button>
+        </div>
+    </section>
+</body>
+</html>

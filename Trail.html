@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            background-color: #fff;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: #fafafa;
+            padding: 5px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            padding-left: 1in;
+        }
+
+        .logo {
+            width: 30px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            width: 200px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 150px;
+            font-size: 1rem;
+        }
+
+        .search-bar .fa {
+            color: #6e6e6e;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+            background-color: #d3d3d3;
+            padding: 10px 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6e6e6e;
+            font-size: 1rem;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background-color: #4f4f4f;
+        }
+
+        .nav-links .fa-home {
+            font-size: 1.5rem;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1rem;
+            color: #6e6e6e;
+        }
+
+        .dark-mode-toggle input {
+            cursor: pointer;
+        }
+
+        .contact-btn {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #005bb5;
+        }
+
+        /* Section Styling */
+        .page {
+            display: none;
+            padding: 20px;
+        }
+
+        #home {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-section">
+            <div class="logo-container">
+                <img src="images/logo.png" width="400" height="150" />
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#" onclick="showPage('home')"><i class="fa fa-home"></i> Home</a>
+            <a href="#" onclick="showPage('about')">About us</a>
+            <a href="#">Our stories</a>
+            <a href="#">Brands</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Nutrition</a>
+            <a href="#">Ask Nestlé</a>
+        </nav>
+        <div class="actions">
+            <div class="dark-mode-toggle">
+                <label for="dark-mode">Dark mode</label>
+                <input type="checkbox" id="dark-mode">
+            </div>
+            <button class="contact-btn">Contact us</button>
+        </div>
+    </header>
+
+    <!-- Sections -->
+    <main>
+        <section id="home" class="page">
+            <h1>Welcome to Nestlé</h1>
+            <p>Explore our world of products and commitments!</p>
+        </section>
+
+        <section id="about" class="page">
+            <h1>About Us</h1>
+            <p>Good food, good life – that is what we stand for. Everything you need to know about Nestlé is here: brands, key figures, milestones.</p>
+        </section>
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(function (section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
